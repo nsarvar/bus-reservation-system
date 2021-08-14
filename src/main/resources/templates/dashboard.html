@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout">
+<head>
+    <title>Dashboard</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div layout:fragment="content">
+
+    <div th:replace="fragments/breadcump.html::breadcump"></div>
+
+    <p th:text="#{home.welcome}">Welcome to our grocery store!</p>
+
+    <h2 class="alert alert-success" th:if="${successMessage}" th:text="${successMessage}"></h2>
+
+    <div>
+        User: <span sec:authentication="name">NOT FOUND</span><br>
+        Spring Roles: <span sec:authentication="principal.authorities">NOT FOUND</span>
+    </div>
+
+    <p sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></p>
+
+    <div sec:authorize-url="/admin">
+        This will only be displayed if authenticated user can call the "/admin" URL.
+    </div>
+
+    <p><a th:href="@{/home}">User Home</a></p>
+    <p><a th:href="@{/admin/home}">Admin Home</a></p>
+    <p sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></p>
+
+</div>
+</body>
+
+</html>

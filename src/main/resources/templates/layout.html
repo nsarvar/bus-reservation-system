@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">
+        Spring Boot Thymeleaf
+    </title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link rel="stylesheet" th:href="@{/static/vendor/bootstrap/css/bootstrap.min.css}"/>
+    <!--    <link rel="stylesheet" th:href="@{/static/fontawesome/css/all.min.css}"/>-->
+    <link rel="stylesheet" href="/static/libs/css/style.css"/>
+    <link rel="stylesheet" href="/static/vendor/fonts/fontawesome/css/fontawesome-all.css"/>
+    <link href="/static/vendor/fonts/circular-std/style.css" rel="stylesheet"/>
+
+</head>
+<body>
+<!--<nav class="navbar navbar-inverse navbar-fixed-top">-->
+<!--    <div class="container">-->
+<!--        <div id="navbar" class="collapse navbar-collapse">-->
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<div class="dashboard-main-wrapper">
+
+    <!-- ============================================================== -->
+    <!-- navbar -->
+    <!-- ============================================================== -->
+    <div th:replace="fragments/header.html::header"></div>
+    <div th:replace="fragments/left_sidebar.html::left_sidebar"></div>
+
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content" layout:fragment="content">
+            <!-- Your Page Content Here -->
+        </div>
+        <div th:replace="fragments/footer.html::footer"></div>
+    </div>
+
+
+</div>
+<script src="/static/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- slimscroll js -->
+<script src="/static/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- main js -->
+<script src="/static/libs/js/main-js.js"></script>
+</body>
+</html>

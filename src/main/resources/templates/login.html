@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+
+    <link rel="stylesheet" th:href="@{/static/vendor/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="/static/libs/css/style.css"/>
+    <link rel="stylesheet" href="/static/vendor/fonts/fontawesome/css/fontawesome-all.css"/>
+    <link href="/static/vendor/fonts/circular-std/style.css" rel="stylesheet"/>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="splash-container">
+    <div class="card ">
+        <div class="card-header text-center">
+            <a th:href="@{/}">
+                <img class="logo-img" th:src="@{/static/images/logo.png}" alt="logo" src=""/>
+            </a>
+            <span class="splash-description">Please enter your user information.</span>
+        </div>
+        <div class="card-body">
+            <form action="home" th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <input class="form-control form-control-lg" id="email" name="username" type="email"
+                           placeholder="Email"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" id="password" name="password" type="password"
+                           placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            </form>
+        </div>
+        <div class="card-footer bg-white p-0  ">
+            <div class="card-footer-item card-footer-item-bordered">
+                <a href="#" th:href="@{/signup}" class="footer-link">Create An Account</a></div>
+            <div class="card-footer-item card-footer-item-bordered">
+                <a href="#" class="footer-link">Forgot Password</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
